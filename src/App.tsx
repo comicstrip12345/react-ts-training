@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ParentType from './components/childrenTypes/ParentType'
+import TypeProps from './components/TypeProps'
+import TypePropsPerson from './components/TypePropsPerson'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const person1={
+        name:'Adriano',
+        age:200,
+        isStart:true,
+    }
+    const products=[
+      {product:'Laptop',price:15000},
+      {product:'Oven',price:15000},
+      {product:'Pencil',price:15000},
+      {product:'Mouse',price:15000}
+    ]
+    return (
+      <>
+        <TypeProps name={20} isStart={true}/>
+        <TypeProps name='Adriano' age={26} isStart={true}/>
+        <TypeProps name='Adriano' isStart={false}/>
+        <TypeProps {...person1}/>
+        <TypePropsPerson person={person1} year={2022} productList={products}/>
+        <ParentType/>
+      </>
+    )
 }
 
-export default App;
+export default App
